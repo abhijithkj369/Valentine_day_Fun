@@ -1,0 +1,68 @@
+.time-together-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 2rem 0;
+    width: 100%;
+    max-width: 800px;
+    animation: slideUp 0.5s ease-out;
+}
+
+.time-together-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.timer-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.timer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--background-color);
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 80px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.timer-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.timer-label {
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+@media (max-width: 600px) {
+    .timer-grid {
+        gap: 0.5rem;
+    }
+
+    .timer-item {
+        min-width: 60px;
+        padding: 0.5rem;
+    }
+
+    .timer-value {
+        font-size: 1.5rem;
+    }
+
+    .timer-label {
+        font-size: 0.7rem;
+    }
+}

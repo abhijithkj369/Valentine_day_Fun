@@ -1,5 +1,8 @@
 import React from 'react';
 import GameCard from '../components/GameCard';
+import TimeTogether from '../components/TimeTogether';
+import JourneyTimeline from '../components/JourneyTimeline';
+import '../styles/Home.css';
 
 const Home = () => {
     return (
@@ -8,6 +11,9 @@ const Home = () => {
                 <h1>Happy Valentine's Day! ❤️</h1>
             </header>
             <main>
+                <TimeTogether />
+
+                <h2>Our Love Games 🎮</h2>
                 <div className="games-grid">
                     <GameCard
                         to="/valentine"
@@ -50,6 +56,8 @@ const Home = () => {
                         description="Find 5 hidden hearts!"
                     />
                 </div>
+
+                <JourneyTimeline />
             </main>
         </>
     );

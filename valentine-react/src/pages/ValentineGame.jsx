@@ -1,26 +1,21 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/ValentineGame.css';
 
 const ValentineGame = () => {
     const [moveCount, setMoveCount] = useState(0);
     const [showSuccess, setShowSuccess] = useState(false);
     const [yesBtnStyle, setYesBtnStyle] = useState({});
-    const maxMoves = 4;
+    const maxMoves = 5; // Difficulty adjusted
     const containerRef = useRef(null);
+    const navigate = useNavigate();
 
     const moveButton = () => {
-        if (moveCount >= maxMoves) {
-            // Stop moving
-            return;
-        }
+        if (moveCount >= maxMoves) return;
 
         if (!containerRef.current) return;
 
-        const containerRect = containerRef.current.getBoundingClientRect();
-        // Assuming button width/height approx 100px/50px or getting from ref if needed
-        // For simplicity, we use the logic from before but adapted for React state
-
+        // Logic to move button to a random position
         const viewportWidth = window.innerWidth - 100;
         const viewportHeight = window.innerHeight - 50;
 
@@ -31,23 +26,28 @@ const ValentineGame = () => {
             position: 'fixed',
             left: `${newX}px`,
             top: `${newY}px`,
-            cursor: moveCount === maxMoves - 1 ? 'pointer' : 'default' // Prepare cursor for next state
+            transition: 'all 0.2s ease' // Smooth movement
         });
 
         setMoveCount(prev => prev + 1);
     };
 
-    const handleYesClick = (e) => {
-        if (moveCount < maxMoves) {
-            e.preventDefault();
-            moveButton();
-        } else {
-            setShowSuccess(true);
-        }
+    const handleYesClick = () => {
+        setShowSuccess(true);
+        // Redirect to rewards after 2 seconds
+        setTimeout(() => {
+            navigate('/rewards');
+        }, 2000);
     };
 
     const handleNoClick = () => {
-        alert("Nice try, but 'No' isn't an option! 😉");
+        const phrases = [
+            "Nice try! 😉",
+            "You can't say no! 😈",
+            "Try again! ❤️",
+            "Don't break my heart! 💔"
+        ];
+        alert(phrases[Math.floor(Math.random() * phrases.length)]);
     };
 
     return (
@@ -64,21 +64,26 @@ const ValentineGame = () => {
                                 id="yes-btn"
                                 style={yesBtnStyle}
                                 onMouseEnter={moveButton}
-                                onClick={handleYesClick}
+                                onClick={moveCount >= maxMoves ? handleYesClick : moveButton}
+                                // Mobile support: touchstart
+                                onTouchStart={moveCount >= maxMoves ? handleYesClick : moveButton}
                             >
                                 Yes!
                             </button>
-                            <button onClick={handleNoClick}>No</button>
+                            <button onClick={handleNoClick} id="no-btn">No</button>
                         </div>
+                        <p style={{ marginTop: '20px', fontSize: '0.8rem', opacity: 0.7 }}>
+                            (Try to catch the button!)
+                        </p>
                     </div>
                 ) : (
                     <div className="game-container success-message">
                         <h2>Yay! I knew you'd say Yes! ❤️</h2>
-                        <p>I love you!</p>
+                        <p>I love you! Getting your rewards...</p>
                         <div className="heart-animation">❤️</div>
                     </div>
                 )}
-                <Link to="/" className="back-link">← Back to Games</Link>
+                {!showSuccess && <Link to="/" className="back-link">← Back to Games</Link>}
             </main>
         </div>
     );
