@@ -1,16 +1,69 @@
-# React + Vite
+# Valentine's Day Fun (React Version) ❤️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A delightful collection of interactive Valentine's Day themed games built with React and Vite. Perfect for sharing with your special someone!
 
-Currently, two official plugins are available:
+## 🎮 Games Included
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1.  **Will you be my Valentine? 💌**
+    -   A playful implementation where the "Yes" button runs away from the cursor! Can you catch it?
+    -   (Tip: It stops running after a few tries 😉)
 
-## React Compiler
+2.  **Love Calculator 💘**
+    -   Enter two names to calculate your compatibility percentage.
+    -   Uses a consistent algorithm so the same names always get the same result!
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+3.  **Memory Match 🎴**
+    -   A classic memory card game with a romantic twist.
+    -   Cards are arranged in a **Heart Shape** grid for extra cuteness!
 
-## Expanding the ESLint configuration
+4.  **Catch the Hearts 🧺**
+    -   A fun Canvas-based game where you move a basket to catch falling hearts.
+    -   Works with both mouse and touch controls!
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Getting Started
+
+### Prerequisites
+-   Node.js installed on your machine.
+
+### Installation
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/abhijithkj369/Valentine_day_Fun.git
+    ```
+2.  Navigate to the project directory:
+    ```bash
+    cd valentine-react
+    ```
+3.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+### Running Locally
+To start the development server:
+```bash
+npm run dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Running on Mobile (Local Network) 📱
+To play the games on your phone:
+1.  Ensure your computer and phone depend on the same Wi-Fi network.
+2.  Run the development server with the host flag:
+    ```bash
+    npm run dev -- --host
+    ```
+3.  Check the terminal output for the **Network** URL (e.g., `http://192.168.1.x:5173`).
+4.  Open that URL in your phone's browser.
+
+## 🛠️ Tech Stack
+-   **React**: UI Library
+-   **Vite**: Build tool and dev server
+-   **React Router**: Navigation
+-   **CSS3**: Custom styling and animations
+
+## 📄 License
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+Made with ❤️ by Abhijith for Valentine's Day!
