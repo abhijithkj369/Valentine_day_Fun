@@ -16,7 +16,6 @@ const PetalPlucker = () => {
 
     useEffect(() => {
         // Generate petals with rotation
-        console.log("PetalPlucker mounted, generating petals..."); // Debug log
         const newPetals = Array.from({ length: TOTAL_PETALS }, (_, i) => ({
             id: i,
             rotation: (360 / TOTAL_PETALS) * i,
@@ -59,10 +58,8 @@ const PetalPlucker = () => {
     };
 
     return (
-        <div className="petal-container" style={{ minHeight: '100vh', background: 'pink', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-            {/* Commented out Confetti to debug blank screen issue
+        <div className="petal-container">
             {gameOver && <Confetti recycle={false} numberOfPieces={200} />}
-            */}
 
             <button className="back-btn" onClick={() => navigate('/')} style={{ position: 'absolute', top: 20, left: 20, zIndex: 100 }}>
                 <ArrowLeft size={24} /> Back
@@ -70,7 +67,7 @@ const PetalPlucker = () => {
 
             <h1 className="game-title" style={{ zIndex: 10 }}>{message}</h1>
 
-            <div className="flower-wrapper" style={{ position: 'relative', width: 300, height: 300 }}>
+            <div className="flower-wrapper">
                 <div className="flower-center">
                     <div className="face">😊</div>
                 </div>
@@ -80,11 +77,10 @@ const PetalPlucker = () => {
                         className={`petal ${petal.isPlucked ? 'falling' : ''}`}
                         style={{
                             transform: `rotate(${petal.rotation}deg)`,
-                            position: 'absolute', width: '100%', height: '100%', pointerEvents: 'none'
                         }}
                         onClick={() => handlePluck(index)}
                     >
-                        <div className="petal-shape" style={{ pointerEvents: 'auto' }} />
+                        <div className="petal-shape" />
                     </div>
                 ))}
                 <div className="stem"></div>

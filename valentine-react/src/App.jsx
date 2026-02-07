@@ -16,6 +16,8 @@ import SecurityCheck from './pages/SecurityCheck';
 import SpamHeartAttack from './pages/SpamHeartAttack';
 import FloatingHeart from './components/FloatingHeart';
 import LoveLetter from './pages/LoveLetter';
+import MagicTypewriter from './pages/MagicTypewriter';
+import PetalPlucker from './pages/PetalPlucker';
 
 const MainLayout = () => {
   const { isAuthenticated } = useSiteSettings();
@@ -37,6 +39,8 @@ const MainLayout = () => {
         <Route path="/catch" element={<CatchTheHearts />} />
         <Route path="/puzzle" element={<JigsawPuzzle />} />
         <Route path="/scramble" element={<LoveLetter />} />
+        <Route path="/typewriter" element={<MagicTypewriter />} />
+        <Route path="/petal" element={<PetalPlucker />} />
         <Route path="/slider" element={<RelationshipSlider />} />
         <Route path="/hidden" element={<HiddenHearts />} />
         <Route path="/spam" element={<SpamHeartAttack />} />
