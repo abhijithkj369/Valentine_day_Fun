@@ -22,8 +22,16 @@ const Admin = () => {
     const handleAddEvent = (e) => {
         e.preventDefault();
         if (newEvent.title && newEvent.date) {
-            addTimelineEvent(newEvent);
-            setNewEvent({ date: '', title: '', description: '', icon: '❤️' });
+            // Split images by comma if provided, formatted as array
+            const imagesArray = newEvent.rawImages
+                ? newEvent.rawImages.split(',').map(url => url.trim()).filter(url => url.length > 0)
+                : [];
+
+            addTimelineEvent({
+                ...newEvent,
+                images: imagesArray
+            });
+            setNewEvent({ date: '', title: '', description: '', icon: '❤️', rawImages: '' });
         }
     };
 
@@ -145,6 +153,13 @@ const Admin = () => {
                             value={newEvent.icon}
                             onChange={handleEventChange}
                             className="short-input"
+                        />
+                        <input
+                            type="text"
+                            name="rawImages"
+                            placeholder="Image URLs (comma separated)"
+                            value={newEvent.rawImages || ''}
+                            onChange={handleEventChange}
                         />
                         <textarea
                             name="description"

@@ -9,8 +9,8 @@ export const SiteProvider = ({ children }) => {
     const defaultSettings = {
         coupleName: "Abhijith & Rashi",
         valentineName: "Rashi",
-        startDate: "2023-02-14T00:00:00",
-        musicUrl: "https://cdn.pixabay.com/download/audio/2022/10/18/audio_31c2730e64.mp3",
+        startDate: "2022-02-14T00:00:00",
+        musicUrl: "/myimages/banjaara.mp3",
         puzzleImage: "https://picsum.photos/400/400",
         hiddenHeartsImage: "https://picsum.photos/800/600?grayscale",
         timelineEvents: [
@@ -19,21 +19,32 @@ export const SiteProvider = ({ children }) => {
                 date: "Feb 14, 2023",
                 title: "First Date",
                 description: "We went to that cute coffee shop and talked for hours.",
-                icon: "☕"
+                icon: "☕",
+                images: [
+                    "/myimages/ChatGPT Image Feb 1, 2026, 02_22_24 AM.png",
+                    "https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1000&auto=format&fit=crop"
+                ]
             },
             {
                 id: 2,
                 date: "June 20, 2023",
                 title: "First Trip",
                 description: "Our amazing weekend getaway to the beach.",
-                icon: "🏖️"
+                icon: "🏖️",
+                images: [
+                    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000&auto=format&fit=crop"
+                ]
             },
             {
                 id: 3,
                 date: "Dec 25, 2023",
                 title: "First Christmas",
                 description: "Exchanging gifts and drinking hot cocoa.",
-                icon: "🎄"
+                icon: "🎄",
+                images: [
+                    "https://images.unsplash.com/photo-1512389142860-9c449e58a543?q=80&w=1000&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1543258103-a62bdc069871?q=80&w=1000&auto=format&fit=crop"
+                ]
             }
         ]
     };
@@ -41,19 +52,19 @@ export const SiteProvider = ({ children }) => {
     // Load from localStorage or use defaults
     const [settings, setSettings] = useState(() => {
         try {
-            const saved = localStorage.getItem('valentineSiteSettings');
+            const saved = localStorage.getItem('valentineSiteSettings_v2');
             // Deep merge to ensure all keys exist even if local data is partial
             return saved ? { ...defaultSettings, ...JSON.parse(saved) } : defaultSettings;
         } catch (e) {
             console.error("Failed to parse settings", e);
-            localStorage.removeItem('valentineSiteSettings');
+            localStorage.removeItem('valentineSiteSettings_v2');
             return defaultSettings;
         }
     });
 
     // Save to localStorage whenever settings change
     useEffect(() => {
-        localStorage.setItem('valentineSiteSettings', JSON.stringify(settings));
+        localStorage.setItem('valentineSiteSettings_v2', JSON.stringify(settings));
     }, [settings]);
 
     const updateSettings = (newSettings) => {
