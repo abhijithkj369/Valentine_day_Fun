@@ -45,6 +45,11 @@ const Home = () => {
                         description="Unscramble the secret message!"
                     />
                     <GameCard
+                        to="/typewriter"
+                        title="⌨️ Magic Typewriter"
+                        description="Write poetry like a pro!"
+                    />
+                    <GameCard
                         to="/puzzle"
                         title="🧩 Love Puzzle"
                         description="Piece together our love!"
