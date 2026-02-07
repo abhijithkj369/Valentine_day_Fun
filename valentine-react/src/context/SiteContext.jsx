@@ -21,7 +21,8 @@ export const SiteProvider = ({ children }) => {
                 description: "That evening at Vettukad Beach still lives in my heart. We atwith friends in  the sea, and I couldn’t stop smiling while watching you enjoy chicken alfam at the restaurant. It was a simple moment, but that’s when I knew this day would stay with me forever.",
                 icon: "🍗",
                 images: [
-                    "/myimages/ChatGPT Image Feb 1, 2026, 02_22_24 AM.png",
+                    "/myimages/day1.png",
+                    "/myimages/ChatGPT Image Feb 1, 2026, 02_22_24 AM.png"
 
                 ]
             },
