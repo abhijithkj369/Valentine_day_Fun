@@ -7,6 +7,7 @@ const MusicPlayer = () => {
     const { settings } = useSiteSettings();
     const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
     const audioRef = useRef(null);
 
     const togglePlay = () => {
@@ -32,7 +33,6 @@ const MusicPlayer = () => {
             if (audioRef.current) {
                 try {
                     audioRef.current.volume = 0.3;
-                    // await audioRef.current.play(); // Auto-play might be blocked
                 } catch (e) {
                     console.log("Autoplay blocked");
                 }
@@ -50,26 +50,34 @@ const MusicPlayer = () => {
     }, [settings.musicUrl]);
 
     return (
-        <div className="music-player">
+        <div className={`music-player ${isExpanded ? 'expanded' : 'collapsed'}`}>
             <audio ref={audioRef} src={settings.musicUrl} loop />
 
-            <div className="music-controls">
-                <div className="music-info">
-                    <Music size={18} className="music-icon spin" style={{ animationPlayState: isPlaying ? 'running' : 'paused' }} />
-                    <span className="scrolling-text">
-                        <span>Us Against The World 🎵</span>
-                    </span>
-                </div>
+            {!isExpanded ? (
+                <button className="music-toggle" onClick={() => setIsExpanded(true)}>
+                    <Music size={24} className={isPlaying ? 'spin' : ''} />
+                </button>
+            ) : (
+                <div className="music-expanded-controls">
+                    <div className="music-header">
+                        <span className="scrolling-text">Our Song 🎵</span>
+                        <div className="header-actions">
+                            <button className="close-btn" onClick={() => setIsExpanded(false)}>
+                                <span style={{ fontSize: '12px' }}>✕</span>
+                            </button>
+                        </div>
+                    </div>
 
-                <div className="buttons">
-                    <button onClick={toggleMute} className="control-btn">
-                        {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-                    </button>
-                    <button onClick={togglePlay} className="control-btn play-btn">
-                        {isPlaying ? <Pause size={18} /> : <Play size={18} />}
-                    </button>
+                    <div className="music-actions">
+                        <button onClick={toggleMute} className="control-btn">
+                            {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+                        </button>
+                        <button onClick={togglePlay} className="control-btn play-btn">
+                            {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+                        </button>
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 };
