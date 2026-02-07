@@ -5,6 +5,10 @@ import ValentineGame from './pages/ValentineGame';
 import LoveCalculator from './pages/LoveCalculator';
 import MemoryMatch from './pages/MemoryMatch';
 import CatchTheHearts from './pages/CatchTheHearts';
+import LoveWordle from './pages/LoveWordle';
+import JigsawPuzzle from './pages/JigsawPuzzle';
+import RelationshipSlider from './pages/RelationshipSlider';
+import HiddenHearts from './pages/HiddenHearts';
 
 function App() {
   return (
@@ -14,6 +18,10 @@ function App() {
       <Route path="/calculator" element={<LoveCalculator />} />
       <Route path="/memory" element={<MemoryMatch />} />
       <Route path="/catch" element={<CatchTheHearts />} />
+      <Route path="/wordle" element={<LoveWordle />} />
+      <Route path="/puzzle" element={<JigsawPuzzle />} />
+      <Route path="/slider" element={<RelationshipSlider />} />
+      <Route path="/hidden" element={<HiddenHearts />} />
     </Routes>
   );
 }

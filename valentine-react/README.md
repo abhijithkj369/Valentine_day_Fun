@@ -20,6 +20,22 @@ A delightful collection of interactive Valentine's Day themed games built with R
     -   A fun Canvas-based game where you move a basket to catch falling hearts.
     -   Works with both mouse and touch controls!
 
+5.  **Love Wordle 🤔**
+    -   Guess the 5-letter secret word related to love!
+    -   Standard Wordle rules: Green = Correct spot, Yellow = Wrong spot.
+
+6.  **Love Puzzle 🧩**
+    -   Drag and drop (or click to swap) pieces to complete the romantic picture.
+    -   Scrambled 3x3 grid fun!
+
+7.  **How Well Do You Know Me? 📏**
+    -   Slider-based trivia.
+    -   Get within the correct range to win!
+
+8.  **Hidden Hearts 🕵️‍♀️**
+    -   Find the 5 tiny hearts hiding in the background image.
+    -   Test your sharp eyes!
+
 ## 🚀 Getting Started
 
 ### Prerequisites

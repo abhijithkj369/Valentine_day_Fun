@@ -1,0 +1,112 @@
+.full-screen-wrapper {
+    position: relative;
+    max-width: 100%;
+}
+
+.overlay-header {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    /* Let clicks pass through */
+}
+
+.overlay-link {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.hidden-hearts-container {
+    padding: 0;
+    overflow: hidden;
+    background: black;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+}
+
+.image-scan-area {
+    position: relative;
+    width: 100%;
+    /* Keep aspect ratio container if needed, but img handles it mostly */
+}
+
+.search-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.hidden-heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.05;
+    /* Barely visible */
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.hidden-heart:hover {
+    opacity: 0.4;
+    /* Slightly more visible on hover */
+    transform: scale(1.2);
+}
+
+.hidden-heart.found {
+    opacity: 1;
+    transform: scale(1.5);
+    filter: drop-shadow(0 0 10px white);
+    animation: bounce 0.5s;
+}
+
+.victory-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    animation: fadeIn 0.5s;
+}
+
+.victory-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: scale(1.5);
+    }
+
+    50% {
+        transform: scale(2);
+    }
+}
