@@ -50,6 +50,11 @@ const Home = () => {
                         description="Write poetry like a pro!"
                     />
                     <GameCard
+                        to="/petal"
+                        title="🌸 Petal Plucker"
+                        description="He loves me, he loves me not..."
+                    />
+                    <GameCard
                         to="/puzzle"
                         title="🧩 Love Puzzle"
                         description="Piece together our love!"

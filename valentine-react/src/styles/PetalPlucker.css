@@ -1,0 +1,141 @@
+.petal-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #e0f7fa 0%, #b2ebf2 100%);
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+.game-title {
+    font-family: 'Pacifico', cursive;
+    color: #e91e63;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-align: center;
+    min-height: 60px;
+    /* Prevent jumpers */
+    z-index: 10;
+}
+
+.flower-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flower-center {
+    width: 100px;
+    height: 100px;
+    background: #ffeb3b;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    position: relative;
+}
+
+.face {
+    pointer-events: none;
+}
+
+.stem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 300px;
+    background: #4caf50;
+    z-index: 0;
+    top: 150px;
+    /* Start from bottom of center */
+}
+
+.petal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Rotate wrapper touches edges */
+}
+
+.petal-shape {
+    position: absolute;
+    top: -60px;
+    /* Push out from center */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 120px;
+    background: #ffcdd2;
+    border-radius: 50px 50px 0 0;
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
+    border: 1px solid #ef9a9a;
+}
+
+.petal-shape:hover {
+    background: #ff80ab;
+}
+
+/* Falling Animation */
+.petal.falling .petal-shape {
+    /* We animate the shape inside the rotated wrapper to make it fall 'down' relative to screen or away? 
+       Actually, if we just translate Y, it moves along the rotation vector. 
+       Let's create a specific keyframe that detaches it visually. 
+    */
+    animation: driftAway 2s forwards ease-in;
+    pointer-events: none;
+    cursor: default;
+}
+
+@keyframes driftAway {
+    0% {
+        transform: translateX(-50%) translateY(0) rotate(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(400px) rotate(45deg);
+        /* Fall "down" but relative to its rotation axis it might be weird. */
+        opacity: 0;
+    }
+}
+
+/* Because the parent (.petal) is rotated, Y axis is radial. 
+   Positive Y means "outwards" from center.
+   So translateY(400px) sends it flying away from the center! Perfect.
+*/
+
+.reset-btn {
+    margin-top: 50px;
+    background: white;
+    color: #e91e63;
+    border: 2px solid #e91e63;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+    z-index: 10;
+}
+
+.reset-btn:hover {
+    background: #e91e63;
+    color: white;
+}
