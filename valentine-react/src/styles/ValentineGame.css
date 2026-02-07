@@ -1,0 +1,48 @@
+.buttons-container {
+    position: relative;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#yes-btn {
+    transition: all 0.2s ease;
+    z-index: 1000;
+    /* Ensure it stays on top when running away */
+}
+
+.success-message {
+    animation: fadeIn 1s;
+}
+
+.heart-animation {
+    font-size: 5rem;
+    animation: beat 1s infinite;
+    margin-top: 20px;
+}
+
+@keyframes beat {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
