@@ -52,19 +52,19 @@ export const SiteProvider = ({ children }) => {
     // Load from localStorage or use defaults
     const [settings, setSettings] = useState(() => {
         try {
-            const saved = localStorage.getItem('valentineSiteSettings');
+            const saved = localStorage.getItem('valentineSiteSettings_v2');
             // Deep merge to ensure all keys exist even if local data is partial
             return saved ? { ...defaultSettings, ...JSON.parse(saved) } : defaultSettings;
         } catch (e) {
             console.error("Failed to parse settings", e);
-            localStorage.removeItem('valentineSiteSettings');
+            localStorage.removeItem('valentineSiteSettings_v2');
             return defaultSettings;
         }
     });
 
     // Save to localStorage whenever settings change
     useEffect(() => {
-        localStorage.setItem('valentineSiteSettings', JSON.stringify(settings));
+        localStorage.setItem('valentineSiteSettings_v2', JSON.stringify(settings));
     }, [settings]);
 
     const updateSettings = (newSettings) => {
