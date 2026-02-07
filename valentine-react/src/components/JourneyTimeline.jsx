@@ -31,7 +31,12 @@ const JourneyTimeline = () => {
                                 <img src={event.image} alt={event.title} className="timeline-image" />
                             )}
                             <h3>{event.icon} {event.title}</h3>
-                            <p>{event.description}</p>
+                            <p>
+                                {event.description.length > 100
+                                    ? `${event.description.substring(0, 100)}...`
+                                    : event.description}
+                                {event.description.length > 100 && <span style={{ color: 'var(--primary-color)', fontSize: '0.9em', marginLeft: '5px' }}>Read More</span>}
+                            </p>
                         </div>
                     </div>
                 ))}

@@ -6,7 +6,7 @@ const RelationshipSlider = () => {
     const questions = [
         {
             id: 1,
-            text: "How much do I love pizza?",
+            text: "How much do I love you?",
             correctValue: 95,
             minCorrect: 90,
             image: "🍕"

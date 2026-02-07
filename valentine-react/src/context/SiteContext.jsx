@@ -91,13 +91,12 @@ export const SiteProvider = ({ children }) => {
             },
             {
                 id: 8,
-                date: "Nov 21, 2022",
-                title: "The Day We Went to IFFK",
-                description: "The day we walked through IFFK together, surrounded by films, crowds, and stories. Even in all that noise, what mattered most to me was being there with you, sharing that moment side by side.",
-                icon: "🎬",
+                date: "Aug 21, 2023",
+                title: "One Year Together",
+                description: "Celebrating 365 days of love, laughter, and annoying each other. The best year of my life.",
+                icon: "�",
                 images: [
-                    "/myimages/day7.jpg",
-                    "/myimages/day7_1.jpg"
+                    "https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1000&auto=format&fit=crop"
                 ]
             }
         ]
@@ -106,14 +105,14 @@ export const SiteProvider = ({ children }) => {
     // Load from localStorage or use defaults
     const [settings, setSettings] = useState(() => {
         try {
-            const saved = localStorage.getItem('valentineSiteSettings_v3');
+            const saved = localStorage.getItem('valentineSiteSettings_v4');
             const parsed = saved ? JSON.parse(saved) : {};
             // Ensure secretPin exists
             if (!parsed.secretPin) parsed.secretPin = "3690";
             return { ...defaultSettings, ...parsed };
         } catch (e) {
             console.error("Failed to parse settings", e);
-            localStorage.removeItem('valentineSiteSettings_v3');
+            localStorage.removeItem('valentineSiteSettings_v4');
             return { ...defaultSettings, secretPin: "3690" };
         }
     });
@@ -122,7 +121,7 @@ export const SiteProvider = ({ children }) => {
 
     // Save to localStorage whenever settings change
     useEffect(() => {
-        localStorage.setItem('valentineSiteSettings_v3', JSON.stringify(settings));
+        localStorage.setItem('valentineSiteSettings_v4', JSON.stringify(settings));
     }, [settings]);
 
     const login = (pin) => {
