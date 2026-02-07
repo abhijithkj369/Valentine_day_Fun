@@ -40,6 +40,11 @@ const Home = () => {
                     />
 
                     <GameCard
+                        to="/scramble"
+                        title="💌 Love Scramble"
+                        description="Unscramble the secret message!"
+                    />
+                    <GameCard
                         to="/puzzle"
                         title="🧩 Love Puzzle"
                         description="Piece together our love!"

@@ -1,0 +1,210 @@
+.love-letter-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+.game-content {
+    text-align: center;
+    transition: opacity 0.5s, transform 0.5s;
+    z-index: 10;
+}
+
+.game-content.sending {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.hint {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.word-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 600px;
+}
+
+.word-tile {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    color: var(--text-color);
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    border: 2px solid transparent;
+}
+
+.word-tile:active {
+    cursor: grabbing;
+    transform: scale(1.05);
+}
+
+.word-tile.selected {
+    border-color: var(--primary-color);
+    background: #fff0f5;
+    transform: translateY(-5px);
+}
+
+/* Envelope Animation */
+.envelope-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: simpleFlyIn 1s ease-out forwards;
+}
+
+.envelope {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    background: #f0f0f0;
+    margin-bottom: 20px;
+}
+
+/* Simplified CSS envelope visualization */
+.envelope::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 75px 50px 75px;
+    border-color: transparent transparent #e0e0e0 transparent;
+    /* Bottom flap */
+    z-index: 2;
+}
+
+.envelope::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50px 75px 0 75px;
+    border-color: #d0d0d0 transparent transparent transparent;
+    /* Top flap */
+    z-index: 3;
+    transform-origin: top;
+    animation: closeFlap 0.5s 1s forwards;
+}
+
+.card {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    color: var(--primary-color);
+    z-index: 1;
+    /* Inside */
+    animation: slideInCard 1s forwards;
+}
+
+@keyframes slideInCard {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes closeFlap {
+    0% {
+        transform: rotateX(0deg);
+        z-index: 1;
+    }
+
+    /* Open */
+    100% {
+        transform: rotateX(180deg);
+        z-index: 4;
+    }
+
+    /* Closed */
+}
+
+@keyframes simpleFlyIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}
+
+/* Flying away animation typically needs JS trigger or more complex keyframes, 
+   keeping it simple: shown on screen */
+
+.flying-message {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-top: 120px;
+    animation: pulse 2s infinite;
+}
+
+.home-btn {
+    position: absolute;
+    bottom: 50px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 1rem;
+}

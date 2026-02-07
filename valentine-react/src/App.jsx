@@ -15,6 +15,7 @@ import MusicPlayer from './components/MusicPlayer';
 import SecurityCheck from './pages/SecurityCheck';
 import SpamHeartAttack from './pages/SpamHeartAttack';
 import FloatingHeart from './components/FloatingHeart';
+import LoveLetter from './pages/LoveLetter';
 
 const MainLayout = () => {
   const { isAuthenticated } = useSiteSettings();
@@ -35,6 +36,7 @@ const MainLayout = () => {
         <Route path="/memory" element={<MemoryMatch />} />
         <Route path="/catch" element={<CatchTheHearts />} />
         <Route path="/puzzle" element={<JigsawPuzzle />} />
+        <Route path="/scramble" element={<LoveLetter />} />
         <Route path="/slider" element={<RelationshipSlider />} />
         <Route path="/hidden" element={<HiddenHearts />} />
         <Route path="/spam" element={<SpamHeartAttack />} />
