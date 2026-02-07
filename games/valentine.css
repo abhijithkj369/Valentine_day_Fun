@@ -1,0 +1,62 @@
+/* Specific styles for the Valentine game */
+#buttons-container {
+    position: relative;
+    height: 100px;
+    /* Give some space for movement initially */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#yes-btn {
+    position: absolute;
+    /* Allows it to move freely */
+    /* Initial centered position is handled by flexbox on container usually, 
+       but for absolute positioning we might need to be careful. 
+       Let's try relative first then switch to absolute on first hover. */
+    transition: all 0.2s ease;
+}
+
+/* We need a specific class to make it absolute for moving */
+#yes-btn.moving {
+    position: absolute;
+}
+
+.hidden {
+    display: none;
+}
+
+#success-message {
+    animation: fadeIn 1s;
+}
+
+.heart-animation {
+    font-size: 5rem;
+    animation: beat 1s infinite;
+    margin-top: 20px;
+}
+
+@keyframes beat {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

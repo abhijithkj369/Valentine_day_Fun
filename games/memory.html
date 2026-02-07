@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="memory.css">
+</head>
+
+<body>
+    <header>
+        <h1>Memory Match 🎴</h1>
+    </header>
+    <main>
+        <div class="game-info">
+            <span>Moves: <span id="moves">0</span></span>
+            <button id="restart-btn">Restart</button>
+        </div>
+        <div class="memory-grid" id="grid">
+            <!-- Cards will be generated here -->
+        </div>
+        <div id="win-message" class="hidden">
+            <h2>You found all the matches! 🎉</h2>
+            <p>Great job!</p>
+        </div>
+        <a href="../index.html" class="back-link">← Back to Games</a>
+    </main>
+    <script src="memory.js"></script>
+</body>
+
+</html>
