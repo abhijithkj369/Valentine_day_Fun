@@ -58,6 +58,11 @@ const Home = () => {
                         title="🕵️‍♀️ Hidden Hearts"
                         description="Find 5 hidden hearts!"
                     />
+                    <GameCard
+                        to="/spam"
+                        title="⚠️ Don't Click!"
+                        description="Warning: Highly Contagious Love!"
+                    />
                 </div>
 
                 <JourneyTimeline />

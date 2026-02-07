@@ -14,6 +14,7 @@ import { SiteProvider, useSiteSettings } from './context/SiteContext';
 import Admin from './pages/Admin';
 import MusicPlayer from './components/MusicPlayer';
 import SecurityCheck from './pages/SecurityCheck';
+import SpamHeartAttack from './pages/SpamHeartAttack';
 
 const MainLayout = () => {
   const { isAuthenticated } = useSiteSettings();
@@ -36,6 +37,7 @@ const MainLayout = () => {
         <Route path="/puzzle" element={<JigsawPuzzle />} />
         <Route path="/slider" element={<RelationshipSlider />} />
         <Route path="/hidden" element={<HiddenHearts />} />
+        <Route path="/spam" element={<SpamHeartAttack />} />
         <Route path="/rewards" element={<Rewards />} />
       </Routes>
     </>
