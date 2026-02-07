@@ -15,6 +15,7 @@ import MusicPlayer from './components/MusicPlayer';
 import SecurityCheck from './pages/SecurityCheck';
 import SpamHeartAttack from './pages/SpamHeartAttack';
 import FloatingHeart from './components/FloatingHeart';
+import TextCursor from './components/TextCursor';
 import LoveLetter from './pages/LoveLetter';
 import MagicTypewriter from './pages/MagicTypewriter';
 import PetalPlucker from './pages/PetalPlucker';
@@ -29,6 +30,7 @@ const MainLayout = () => {
   return (
     <>
       <FloatingHeart />
+      <TextCursor text="❤️" />
       <MusicPlayer />
       <Routes>
         <Route path="/" element={<Home />} />
