@@ -15,37 +15,22 @@ const LoveCalculator = () => {
             return;
         }
 
-        const n1 = name1.trim().toLowerCase();
-        const n2 = name2.trim().toLowerCase();
+        // RIGGED: Always 1000%
+        const percentage = 1000;
+        const message = "Error: Too much love to calculate! 💥❤️";
 
-        // Simple deterministic hash based percentage
-        const combined = n1 + n2;
-        let hash = 0;
-        for (let i = 0; i < combined.length; i++) {
-            hash = combined.charCodeAt(i) + ((hash << 5) - hash);
-        }
-
-        let percentage = Math.abs(hash % 101); // 0 to 100
-        if (percentage < 30) percentage += 30; // Bias towards love
-
-        setResult({ percentage, message: getMessage(percentage) });
+        setResult({ percentage, message });
         setIsAnimating(true);
         setAnimatingPercentage(0);
-    };
-
-    const getMessage = (percentage) => {
-        if (percentage > 90) return "Matches made in heaven! 👰🤵";
-        if (percentage > 70) return "Looking good! Love is in the air! 💕";
-        if (percentage > 50) return "There's a chance! Keep trying! 😉";
-        return "Maybe best as friends? 😅";
     };
 
     useEffect(() => {
         if (isAnimating && result) {
             if (animatingPercentage < result.percentage) {
                 const timer = setTimeout(() => {
-                    setAnimatingPercentage(prev => Math.min(prev + 1, result.percentage));
-                }, 20);
+                    // Speed up the count for 1000%
+                    setAnimatingPercentage(prev => Math.min(prev + 10, result.percentage));
+                }, 10);
                 return () => clearTimeout(timer);
             } else {
                 setIsAnimating(false);
