@@ -16,6 +16,7 @@ import SecurityCheck from './pages/SecurityCheck';
 import SpamHeartAttack from './pages/SpamHeartAttack';
 import FloatingHeart from './components/FloatingHeart';
 import TextCursor from './components/TextCursor';
+import StarryBackground from './components/StarryBackground';
 import LoveLetter from './pages/LoveLetter';
 import MagicTypewriter from './pages/MagicTypewriter';
 import PetalPlucker from './pages/PetalPlucker';
@@ -28,9 +29,9 @@ const MainLayout = () => {
   }
 
   return (
-    <>
+    <StarryBackground>
       <FloatingHeart />
-      <TextCursor text="❤️" />
+      <TextCursor text="🌛" />
       <MusicPlayer />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -48,7 +49,7 @@ const MainLayout = () => {
         <Route path="/spam" element={<SpamHeartAttack />} />
         <Route path="/rewards" element={<Rewards />} />
       </Routes>
-    </>
+    </StarryBackground>
   );
 };
 

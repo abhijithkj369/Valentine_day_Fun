@@ -1,0 +1,125 @@
+.starry-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    overflow-y: auto;
+    /* Allow scrolling for content */
+    overflow-x: hidden;
+    z-index: 0;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    /* Content above stars */
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Function to generate random box-shadows for stars */
+/* Since we are in CSS, we'll simulate this with a few manually placed ones or use a small script if needed, 
+   but for this "task" I will use a simple repeating pattern or image if possible. 
+   Actually, the best pure-CSS way without SCSS is to use a background image or just a few explicit shadows.
+   Let's use a simple background image of noise/stars for stability and performance.
+*/
+
+/* BETTER APPROACH: CSS Generated Stars using small box-shadows is best but verbose here. 
+   I will use a gradient + noise approach combined with some animated elements. */
+
+.stars {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: 174px 505px #FFF, 763px 1279px #FFF, 470px 1045px #FFF, 1891px 632px #FFF, 1133px 441px #FFF, 442px 797px #FFF, 889px 1978px #FFF, 72px 1475px #FFF, 135px 1289px #FFF, 1563px 1863px #FFF, 822px 1324px #FFF, 1132px 34px #FFF, 1745px 349px #FFF, 11px 1969px #FFF, 1222px 1827px #FFF;
+    animation: animStar 50s linear infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.stars:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: 174px 505px #FFF, 763px 1279px #FFF, 470px 1045px #FFF, 1891px 632px #FFF, 1133px 441px #FFF, 442px 797px #FFF, 889px 1978px #FFF, 72px 1475px #FFF, 135px 1289px #FFF, 1563px 1863px #FFF, 822px 1324px #FFF, 1132px 34px #FFF, 1745px 349px #FFF, 11px 1969px #FFF, 1222px 1827px #FFF;
+}
+
+.stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 1251px 1564px #FFF, 1481px 1045px #FFF, 149px 1139px #FFF, 1765px 1081px #FFF, 466px 1726px #FFF, 1762px 1618px #FFF, 1971px 1642px #FFF, 1572px 1303px #FFF, 1421px 1528px #FFF, 1686px 631px #FFF, 214px 1749px #FFF, 1851px 1018px #FFF, 507px 321px #FFF, 1836px 1344px #FFF, 741px 229px #FFF;
+    animation: animStar 100s linear infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.stars2:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 1251px 1564px #FFF, 1481px 1045px #FFF, 149px 1139px #FFF, 1765px 1081px #FFF, 466px 1726px #FFF, 1762px 1618px #FFF, 1971px 1642px #FFF, 1572px 1303px #FFF, 1421px 1528px #FFF, 1686px 631px #FFF, 214px 1749px #FFF, 1851px 1018px #FFF, 507px 321px #FFF, 1836px 1344px #FFF, 741px 229px #FFF;
+}
+
+.moon-glow {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 50px #fff, 0 0 100px #ff00de, 0 0 150px #ff00de;
+    opacity: 0.8;
+    animation: moonPulse 4s infinite alternate;
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-2000px);
+    }
+}
+
+@keyframes moonPulse {
+    from {
+        opacity: 0.8;
+        box-shadow: 0 0 50px #fff, 0 0 100px #e0e0e0;
+    }
+
+    to {
+        opacity: 1;
+        box-shadow: 0 0 60px #fff, 0 0 120px #ffffff;
+    }
+}
+
+/* Scrollbar styling for Webkit */
+.starry-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.starry-container::-webkit-scrollbar-track {
+    background: #090a0f;
+}
+
+.starry-container::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+.starry-container::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}

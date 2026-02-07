@@ -37,24 +37,30 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%; /* Responsive width */
+  width: 100%;
   min-height: 200px;
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid #333;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: border-color 0.3s ease, transform 0.2s;
-  background: var(--card-gradient);
+  background: rgba(255, 255, 255, 0.03);
+  /* Dark glass base */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
   --mouse-x: 50%;
   --mouse-y: 50%;
-  --spotlight-color: rgba(255, 255, 255, 0.3);
+  --spotlight-color: rgba(255, 255, 255, 0.2);
 }
 
 .chroma-card:hover {
   border-color: var(--card-border);
   transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  /* Glow on hover */
 }
 
+/* Spotlight effect */
 .chroma-card::before {
   content: '';
   position: absolute;
@@ -94,89 +100,52 @@
 .chroma-info {
   position: relative;
   z-index: 1;
-  padding: 0.75rem 1rem;
+  padding: 1rem;
   color: #fff;
   font-family: system-ui, sans-serif;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .chroma-info .name {
-    margin: 0;
-    font-size: 1.1rem;
-    font-weight: 700;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .chroma-info .role {
-  color: #ddd;
+  color: #ccc;
   margin: 4px 0 0 0;
   font-size: 0.9rem;
 }
 
+/* Dark Mode Overlay for the flashlight effect on the grid itself */
 .chroma-overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 3;
-  /* Reduced opacity for backdrop so it doesn't hide the background completely if needed */
-  /* backdrop-filter: grayscale(1) brightness(0.78); */ 
   background: rgba(0, 0, 0, 0.001);
 
-  mask-image: radial-gradient(
-    circle var(--r) at var(--x) var(--y),
-    transparent 0%,
-    transparent 15%,
-    rgba(0, 0, 0, 0.1) 30%,
-    rgba(0, 0, 0, 0.22) 45%,
-    rgba(0, 0, 0, 0.35) 60%,
-    rgba(0, 0, 0, 0.5) 75%,
-    rgba(0, 0, 0, 0.68) 88%,
-    white 100%
-  );
-  -webkit-mask-image: radial-gradient(
-    circle var(--r) at var(--x) var(--y),
-    transparent 0%,
-    transparent 15%,
-    rgba(0, 0, 0, 0.1) 30%,
-    rgba(0, 0, 0, 0.22) 45%,
-    rgba(0, 0, 0, 0.35) 60%,
-    rgba(0, 0, 0, 0.5) 75%,
-    rgba(0, 0, 0, 0.68) 88%,
-    white 100%
-  );
+  mask-image: radial-gradient(circle var(--r) at var(--x) var(--y),
+      transparent 0%,
+      rgba(0, 0, 0, 0.5) 40%,
+      black 70%);
+  -webkit-mask-image: radial-gradient(circle var(--r) at var(--x) var(--y),
+      transparent 0%,
+      rgba(0, 0, 0, 0.5) 40%,
+      black 70%);
 }
 
+/* Fade ref handling */
 .chroma-fade {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 4;
-  
-  /* background: rgba(0, 0, 0, 0.001); */
-
-  mask-image: radial-gradient(
-    circle var(--r) at var(--x) var(--y),
-    white 0%,
-    white 15%,
-    rgba(255, 255, 255, 0.9) 30%,
-    rgba(255, 255, 255, 0.78) 45%,
-    rgba(255, 255, 255, 0.65) 60%,
-    rgba(255, 255, 255, 0.5) 75%,
-    rgba(255, 255, 255, 0.32) 88%,
-    transparent 100%
-  );
-  -webkit-mask-image: radial-gradient(
-    circle var(--r) at var(--x) var(--y),
-    white 0%,
-    white 15%,
-    rgba(255, 255, 255, 0.9) 30%,
-    rgba(255, 255, 255, 0.78) 45%,
-    rgba(255, 255, 255, 0.65) 60%,
-    rgba(255, 255, 255, 0.5) 75%,
-    rgba(255, 255, 255, 0.32) 88%,
-    transparent 100%
-  );
-
   opacity: 1;
   transition: opacity 0.25s ease;
 }

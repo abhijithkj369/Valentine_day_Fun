@@ -62,9 +62,9 @@ const ChromaGrid = ({
   const handleCardClick = (url) => {
     if (url) {
       if (url.startsWith('http')) {
-         window.open(url, '_blank', 'noopener,noreferrer');
+        window.open(url, '_blank', 'noopener,noreferrer');
       } else {
-         navigate(url);
+        navigate(url);
       }
     }
   };
@@ -97,20 +97,19 @@ const ChromaGrid = ({
           onMouseMove={handleCardMove}
           onClick={() => handleCardClick(c.url)}
           style={{
-            '--card-border': c.borderColor || 'transparent',
-            '--card-gradient': c.gradient,
+            '--card-border': c.borderColor || '#ffffff55',
+            '--card-gradient': c.gradient || 'rgba(255, 255, 255, 0.05)',
             cursor: c.url ? 'pointer' : 'default'
           }}
         >
           <div className="chroma-img-wrapper">
-             {/* Support both image URLs and emoji icons/components */}
-             {c.image ? (
-                <img src={c.image} alt={c.title} loading="lazy" />
-             ) : (
-                <div style={{ fontSize: '4rem', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                    {c.icon || '🎮'}
-                </div>
-             )}
+            {c.image ? (
+              <img src={c.image} alt={c.title} loading="lazy" />
+            ) : (
+              <div style={{ fontSize: '4rem', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.5))' }}>
+                {c.icon || '🌕'}
+              </div>
+            )}
           </div>
           <footer className="chroma-info">
             <h3 className="name">{c.title}</h3>
