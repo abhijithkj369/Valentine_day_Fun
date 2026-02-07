@@ -15,6 +15,7 @@ import Admin from './pages/Admin';
 import MusicPlayer from './components/MusicPlayer';
 import SecurityCheck from './pages/SecurityCheck';
 import SpamHeartAttack from './pages/SpamHeartAttack';
+import FloatingHeart from './components/FloatingHeart';
 
 const MainLayout = () => {
   const { isAuthenticated } = useSiteSettings();
@@ -25,6 +26,7 @@ const MainLayout = () => {
 
   return (
     <>
+      <FloatingHeart />
       <MusicPlayer />
       <Routes>
         <Route path="/" element={<Home />} />

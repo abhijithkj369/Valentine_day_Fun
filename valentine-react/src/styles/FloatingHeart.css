@@ -1,0 +1,117 @@
+.floating-heart-container {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    z-index: 1500;
+    /* Above most things, below modal/music expanded */
+    pointer-events: none;
+    /* Don't block clicks */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    animation: floatAndFade 3s ease-in-out forwards;
+}
+
+.heart-shape {
+    width: 50px;
+    height: 50px;
+    background-color: #ff3366;
+    transform: rotate(-45deg);
+    position: relative;
+    animation: heartbeat 1s infinite;
+    box-shadow: 0 0 20px rgba(255, 51, 102, 0.6);
+}
+
+.heart-shape::before,
+.heart-shape::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color: #ff3366;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart-shape::before {
+    top: -25px;
+    left: 0;
+}
+
+.heart-shape::after {
+    left: 25px;
+    top: 0;
+}
+
+.heart-text {
+    margin-top: 40px;
+    /* Space for the rotated heart */
+    color: #ff3366;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px white, 0 0 10px white;
+    white-space: nowrap;
+    animation: textPulse 1s infinite;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    15% {
+        transform: rotate(-45deg) scale(1.3);
+    }
+
+    30% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    45% {
+        transform: rotate(-45deg) scale(1.3);
+    }
+
+    100% {
+        transform: rotate(-45deg) scale(1);
+    }
+}
+
+@keyframes textPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes floatAndFade {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translate(-50%, -80%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -100%) scale(0.8);
+    }
+}
