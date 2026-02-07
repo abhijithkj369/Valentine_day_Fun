@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import { useSiteSettings } from '../context/SiteContext';
 import { Link } from 'react-router-dom';
 import '../styles/HiddenHearts.css';
 
 const HiddenHearts = () => {
-    // Random positions for the hearts
-    // In a real app, maybe randomize these on mount to prevent memorization
+    const { settings } = useSiteSettings();
     const [hearts, setHearts] = useState([
         { id: 1, top: '15%', left: '10%', found: false },
         { id: 2, top: '45%', left: '80%', found: false },
@@ -21,7 +21,7 @@ const HiddenHearts = () => {
             const newHearts = hearts.map(h =>
                 h.id === id ? { ...h, found: true } : h
             );
-            setHearts(newHearts); // Update specific heart to found
+            setHearts(newHearts);
             setFoundCount(prev => prev + 1);
         }
     };
@@ -34,10 +34,9 @@ const HiddenHearts = () => {
             </header>
 
             <main className="game-container hidden-hearts-container">
-                {/* Background Image Container */}
                 <div className="image-scan-area">
                     <img
-                        src="https://picsum.photos/800/600?grayscale"
+                        src={settings.hiddenHeartsImage}
                         alt="Background"
                         className="search-bg"
                     />

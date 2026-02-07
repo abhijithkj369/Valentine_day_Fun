@@ -1,15 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useSiteSettings } from '../context/SiteContext';
 import { Music, Pause, Play, Volume2, VolumeX } from 'lucide-react';
 import '../styles/MusicPlayer.css';
 
 const MusicPlayer = () => {
+    const { settings } = useSiteSettings();
     const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
     const audioRef = useRef(null);
-
-    // Using a reliable public domain or creative commons MP3 as placeholder
-    // User should replace this URL with their own hosted file or local asset
-    const AUDIO_URL = "https://cdn.pixabay.com/download/audio/2022/10/18/audio_31c2730e64.mp3";
 
     const togglePlay = () => {
         if (audioRef.current) {
@@ -29,25 +27,31 @@ const MusicPlayer = () => {
         }
     };
 
-    // Auto-play attempt on mount (often blocked by browsers without interaction)
     useEffect(() => {
         const attemptPlay = async () => {
             if (audioRef.current) {
                 try {
-                    audioRef.current.volume = 0.3; // Low volume start
-                    // await audioRef.current.play();
-                    // setIsPlaying(true);
+                    audioRef.current.volume = 0.3;
+                    // await audioRef.current.play(); // Auto-play might be blocked
                 } catch (e) {
-                    console.log("Autoplay blocked, waiting for user interaction");
+                    console.log("Autoplay blocked");
                 }
             }
         };
         attemptPlay();
     }, []);
 
+    // Effect to reload audio if URL changes from Admin
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.load();
+            if (isPlaying) audioRef.current.play().catch(e => console.log(e));
+        }
+    }, [settings.musicUrl]);
+
     return (
         <div className="music-player">
-            <audio ref={audioRef} src={AUDIO_URL} loop />
+            <audio ref={audioRef} src={settings.musicUrl} loop />
 
             <div className="music-controls">
                 <div className="music-info">

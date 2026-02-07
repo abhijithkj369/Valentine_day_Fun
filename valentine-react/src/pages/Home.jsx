@@ -1,14 +1,17 @@
 import React from 'react';
+import { useSiteSettings } from '../context/SiteContext';
 import GameCard from '../components/GameCard';
 import TimeTogether from '../components/TimeTogether';
 import JourneyTimeline from '../components/JourneyTimeline';
 import '../styles/Home.css';
 
 const Home = () => {
+    const { settings } = useSiteSettings();
+
     return (
         <>
             <header>
-                <h1>Happy Valentine's Day! ❤️</h1>
+                <h1>Happy Valentine's Day, {settings.valentineName}! ❤️</h1>
             </header>
             <main>
                 <TimeTogether />
