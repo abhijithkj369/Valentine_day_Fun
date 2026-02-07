@@ -70,6 +70,16 @@ const Admin = () => {
                             onChange={handleChange}
                         />
                     </div>
+                    <div className="form-group">
+                        <label>Secret PIN (Security Check)</label>
+                        <input
+                            type="text"
+                            name="secretPin"
+                            value={settings.secretPin}
+                            onChange={handleChange}
+                            maxLength="4"
+                        />
+                    </div>
                 </section>
 
                 <section className="admin-section">

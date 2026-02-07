@@ -9,7 +9,7 @@ export const SiteProvider = ({ children }) => {
     const defaultSettings = {
         coupleName: "Abhijith & Rashi",
         valentineName: "Rashi",
-        startDate: "2022-02-14T00:00:00",
+        startDate: "2022-08-21T00:00:00",
         musicUrl: "/myimages/banjaara.mp3",
         puzzleImage: "https://picsum.photos/400/400",
         hiddenHeartsImage: "https://picsum.photos/800/600?grayscale",
@@ -17,12 +17,12 @@ export const SiteProvider = ({ children }) => {
             {
                 id: 1,
                 date: "Feb 14, 2023",
-                title: "First Date",
-                description: "We went to that cute coffee shop and talked for hours.",
-                icon: "☕",
+                title: "The Day Our Story Began",
+                description: "That evening at Vettukad Beach still lives in my heart. We atwith friends in  the sea, and I couldn’t stop smiling while watching you enjoy chicken alfam at the restaurant. It was a simple moment, but that’s when I knew this day would stay with me forever.",
+                icon: "🍗",
                 images: [
                     "/myimages/ChatGPT Image Feb 1, 2026, 02_22_24 AM.png",
-                    "https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1000&auto=format&fit=crop"
+
                 ]
             },
             {
@@ -53,19 +53,31 @@ export const SiteProvider = ({ children }) => {
     const [settings, setSettings] = useState(() => {
         try {
             const saved = localStorage.getItem('valentineSiteSettings_v2');
-            // Deep merge to ensure all keys exist even if local data is partial
-            return saved ? { ...defaultSettings, ...JSON.parse(saved) } : defaultSettings;
+            const parsed = saved ? JSON.parse(saved) : {};
+            // Ensure secretPin exists
+            if (!parsed.secretPin) parsed.secretPin = "3690";
+            return { ...defaultSettings, ...parsed };
         } catch (e) {
             console.error("Failed to parse settings", e);
             localStorage.removeItem('valentineSiteSettings_v2');
-            return defaultSettings;
+            return { ...defaultSettings, secretPin: "3690" };
         }
     });
+
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     // Save to localStorage whenever settings change
     useEffect(() => {
         localStorage.setItem('valentineSiteSettings_v2', JSON.stringify(settings));
     }, [settings]);
+
+    const login = (pin) => {
+        if (pin === settings.secretPin) {
+            setIsAuthenticated(true);
+            return true;
+        }
+        return false;
+    };
 
     const updateSettings = (newSettings) => {
         setSettings(prev => ({ ...prev, ...newSettings }));
@@ -90,7 +102,9 @@ export const SiteProvider = ({ children }) => {
             settings,
             updateSettings,
             addTimelineEvent,
-            removeTimelineEvent
+            removeTimelineEvent,
+            isAuthenticated,
+            login
         }}>
             {children}
         </SiteContext.Provider>
