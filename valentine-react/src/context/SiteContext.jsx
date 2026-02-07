@@ -11,12 +11,12 @@ export const SiteProvider = ({ children }) => {
         valentineName: "Rashi",
         startDate: "2022-08-21T00:00:00",
         musicUrl: "/myimages/banjaara.mp3",
-        puzzleImage: "https://picsum.photos/400/400",
-        hiddenHeartsImage: "https://picsum.photos/800/600?grayscale",
+        puzzleImage: "/myimages/puzzle.png",
+        hiddenHeartsImage: "/myimages/hiddenHearts.jpeg",
         timelineEvents: [
             {
                 id: 1,
-                date: "Feb 14, 2023",
+                date: "sept 21, 2022",
                 title: "The Day Our Story Began",
                 description: "That evening at Vettukad Beach still lives in my heart. We with friends in  the sea, and I couldn’t stop smiling while watching you enjoy chicken alfam at the restaurant. It was a simple moment, but that’s when I knew this day would stay with me forever.",
                 icon: "🍗",
@@ -28,23 +28,76 @@ export const SiteProvider = ({ children }) => {
             },
             {
                 id: 2,
-                date: "June 20, 2023",
+                date: "oct 08, 2022",
                 title: "Where It All Started",
                 description: "The day I took you on my scooter to Lulu Mall. The day I felt that spark in you. The day I truly spent time with you. I can never forget it, Raash. While riding back, my mind was completely filled with thoughts of you.",
                 icon: "🛵",
                 images: [
-                    "/myimages/day2.jpg"
+                    "/myimages/day2.jpg",
+                    "/myimages/day2_1.jpg"
                 ]
             },
             {
                 id: 3,
-                date: "Dec 25, 2023",
-                title: "First Christmas",
-                description: "Exchanging gifts and drinking hot cocoa.",
-                icon: "🎄",
+                date: "oct 27, 2022",
+                title: "The Day We First Went Out",
+                description: "The day you wrote ‘ennennum kannetante’. That was the first time I felt it clearly. The moment I realized you might have love for me too.",
+                icon: "📝",
                 images: [
-                    "https://images.unsplash.com/photo-1512389142860-9c449e58a543?q=80&w=1000&auto=format&fit=crop",
-                    "https://images.unsplash.com/photo-1543258103-a62bdc069871?q=80&w=1000&auto=format&fit=crop"
+                    "/myimages/day3.jpg"
+                ]
+            },
+            {
+                id: 4,
+                date: "oct 29, 2022",
+                title: "The Day We Watched Our First Movie Together",
+                description: "We watched Kantara that day. You chose to sit with me instead of going to your friends, and you stayed beside me until the movie ended. It was the first time I ever watched a movie in a theatre with a girl, and that made the moment unforgettable.",
+                icon: "🎬",
+                images: [
+                    "/myimages/day4.jpg"
+                ]
+            },
+            {
+                id: 5,
+                date: "nov 04, 2022",
+                title: "The Day We Spoke About Love",
+                description: "Along with Kavya, you and I talked for a long time about love and college relationships. We spoke about what love means, without knowing that in the future, we would fall in love with each other.",
+                icon: "📝",
+                images: [
+                    "/myimages/day5.jpg"
+                ]
+            },
+            {
+                id: 6,
+                date: "Nov 14, 2022",
+                title: "Dancing With the Rain",
+                description: "It was raining, and you didn’t run away from it. You took us out to feel the rain together. In that moment, I realized you were different from everyone else, and that difference stayed with me.",
+                icon: "🌧️",
+                images: [
+                    "/myimages/day6.jpg",
+                    "/myimages/day6_1.jpg"
+                ]
+            },
+            {
+                id: 7,
+                date: "Nov 21, 2022",
+                title: "The Day We Went to IFFK",
+                description: "The day we walked through IFFK together, surrounded by films, crowds, and stories. Even in all that noise, what mattered most to me was being there with you, sharing that moment side by side.",
+                icon: "🎬",
+                images: [
+                    "/myimages/day7.jpg",
+                    "/myimages/day7_1.jpg"
+                ]
+            },
+            {
+                id: 8,
+                date: "Nov 21, 2022",
+                title: "The Day We Went to IFFK",
+                description: "The day we walked through IFFK together, surrounded by films, crowds, and stories. Even in all that noise, what mattered most to me was being there with you, sharing that moment side by side.",
+                icon: "🎬",
+                images: [
+                    "/myimages/day7.jpg",
+                    "/myimages/day7_1.jpg"
                 ]
             }
         ]

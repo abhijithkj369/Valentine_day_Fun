@@ -38,11 +38,7 @@ const Home = () => {
                         title="🧺 Catch the Hearts"
                         description="Collect as many hearts as you can!"
                     />
-                    <GameCard
-                        to="/wordle"
-                        title="🤔 Love Wordle"
-                        description="Guess the secret love word!"
-                    />
+
                     <GameCard
                         to="/puzzle"
                         title="🧩 Love Puzzle"
