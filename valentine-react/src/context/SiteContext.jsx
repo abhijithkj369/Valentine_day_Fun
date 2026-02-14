@@ -12,7 +12,7 @@ export const SiteProvider = ({ children }) => {
         startDate: "2022-08-21T00:00:00",
         musicUrl: "/myimages/banjaara.mp3",
         puzzleImage: "/myimages/puzzle.png",
-        hiddenHeartsImage: "/myimages/hiddenHearts.jpeg",
+        hiddenHeartsImage: "/myimages/ChatGPT Image Feb 1, 2026, 02_22_24 AM.png",
         timelineEvents: [
             {
                 id: 1,
@@ -21,7 +21,7 @@ export const SiteProvider = ({ children }) => {
                 description: "That evening at Vettukad Beach still lives in my heart. We with friends in  the sea, and I couldn’t stop smiling while watching you enjoy chicken alfam at the restaurant. It was a simple moment, but that’s when I knew this day would stay with me forever.",
                 icon: "🍗",
                 images: [
-                    "/myimages/day1.jpg"
+                    "/myimages/ChatGPT Image Feb 1, 2026, 02_22_24 AM.png"
                 ]
             },
             {
