@@ -7,8 +7,8 @@ export const useSiteSettings = () => useContext(SiteContext);
 export const SiteProvider = ({ children }) => {
     // Default Initial State
     const defaultSettings = {
-        coupleName: "Abhijith & Rashi",
-        valentineName: "Rashi",
+        coupleName: "Abhijith & Hera",
+        valentineName: "Hera",
         startDate: "2022-08-21T00:00:00",
         musicUrl: "/myimages/banjaara.mp3",
         puzzleImage: "/myimages/puzzle.png",
@@ -30,7 +30,7 @@ export const SiteProvider = ({ children }) => {
                 id: 2,
                 date: "oct 08, 2022",
                 title: "Where It All Started",
-                description: "The day I took you on my scooter to Lulu Mall. The day I felt that spark in you. The day I truly spent time with you. I can never forget it, Raash. While riding back, my mind was completely filled with thoughts of you.",
+                description: "The day I took you on my scooter to Lulu Mall. The day I felt that spark in you. The day I truly spent time with you. I can never forget it, Hera. While riding back, my mind was completely filled with thoughts of you.",
                 icon: "🛵",
                 images: [
                     "/myimages/day2.jpg",
